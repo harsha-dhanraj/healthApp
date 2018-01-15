@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="healthapp">
+	<head>
+		<title>ECG Monitoring App</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">		
+	</head>
+	<body>	
+	<div class="container" ng-controller="AppCtrl">
+		<h1>Doctors list</h1>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Specialization</th>
+					<th>Contact No</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" name="name" class="form-control" ng-model="doctor.name"></td>
+					<td><input type="text" name="specialization" class="form-control" ng-model="doctor.specialization"></td>
+					<td><input type="text" name="contact_no" class="form-control" ng-model="doctor.contact_no"></td>
+					<td><input type="text" name="email" class="form-control" ng-model="doctor.email"></td>
+					<td><button class="btn btn-success btn-sm" ng-click="addDoctor()">Add Doctor</button></td>
+					<td><button class="btn btn-primary btn-sm" ng-click="updateDoctor()">Update Doctor</button></td>
+					<td><button class="btn btn-info btn-sm" ng-click="clear()">Clear</button></td>
+				</tr>
+				<tr ng-repeat="doctor in doctors">
+					<td>{{doctor.name}}</td>
+					<td>{{doctor.specialization}}</td>
+					<td>{{doctor.contact_no}}</td>
+					<td>{{doctor.email}}</td>
+					<td><button class="btn btn-danger btn-sm" ng-click="remove(doctor._id)">Remove</button></td>
+					<td><button class="btn btn-warning btn-sm" ng-click="edit(doctor._id)">Edit</button></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+	<script src="controllers/controller.js"></script>
+	</body>
+</html>
